@@ -1,0 +1,20 @@
+[tool.black]
+target-version = ["py312"]
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | migrations
+)/
+'''
+
+[tool.isort]
+profile = "black"
+skip = ["migrations", ".venv"]
+
+[tool.ruff]
+target-version = "py312"
+select = ["E", "F", "I"]  # Errors, pyflakes, import sorting
+ignore = ["E501", "E741"]
+exclude = ["migrations", ".venv", ".git"]
+line-length = 88

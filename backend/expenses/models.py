@@ -1,12 +1,13 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
+
 
 class Expense(models.Model):
     CATEGORY_CHOICES = [
-        ('food', 'Food'),
-        ('travel', 'Travel'),
-        ('utilities', 'Utilities'),
-        ('misc', 'Miscellaneous'),
+        ("food", "Food"),
+        ("travel", "Travel"),
+        ("utilities", "Utilities"),
+        ("misc", "Miscellaneous"),
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
