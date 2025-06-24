@@ -44,3 +44,8 @@ class ExpenseViewSet(viewsets.ModelViewSet):
         qs = self.get_queryset()
         summary = qs.values("category").annotate(total=Sum("amount"))
         return Response(summary)
+
+    @action(detail=False, methods=["get"], permission_classes=[permissions.IsAdminUser])
+    def user_summary(self, request):
+        summary = Expense.objects.values("user__username").annotate(total=Sum("amount"))
+        return Response(summary)
